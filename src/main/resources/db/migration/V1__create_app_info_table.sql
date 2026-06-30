@@ -1,0 +1,7 @@
+CREATE TABLE app_info (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    app_name VARCHAR(100) NOT NULL,
+    app_version VARCHAR(20) NOT NULL,
+    environment VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
