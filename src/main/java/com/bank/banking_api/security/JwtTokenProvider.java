@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.bank.banking_api.user.entity.User;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
@@ -38,5 +39,22 @@ public class JwtTokenProvider {
                 .expiration(expiryDate)
                 .signWith(secretKey)
                 .compact();
+    }
+
+    public String getEmailFromToken(String token) {
+        return getClaims(token).getSubject();
+    }
+
+    public boolean validateToken(String token) {
+        getClaims(token);
+        return true;
+    }
+
+    private Claims getClaims(String token) {
+        return Jwts.parser()
+                .verifyWith(secretKey)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 }

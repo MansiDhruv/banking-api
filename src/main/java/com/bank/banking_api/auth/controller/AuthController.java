@@ -1,5 +1,7 @@
 package com.bank.banking_api.auth.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,5 +34,10 @@ public class AuthController {
     public ApiResponse<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
         LoginResponse response = authService.login(request);
         return ApiResponse.success("Login successful", response);
+    }
+    
+    @GetMapping("/api/v1/auth/me")
+    public ApiResponse<String> me(Authentication authentication) {
+        return ApiResponse.success("Authenticated user fetched", authentication.getName());
     }
 }
