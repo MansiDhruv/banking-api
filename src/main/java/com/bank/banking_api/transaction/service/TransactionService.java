@@ -1,14 +1,18 @@
 package com.bank.banking_api.transaction.service;
 
 import java.security.SecureRandom;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.bank.banking_api.account.entity.Account;
 import com.bank.banking_api.common.enums.TransactionStatus;
 import com.bank.banking_api.common.enums.TransactionType;
+import com.bank.banking_api.transaction.dto.TransactionResponse;
 import com.bank.banking_api.transaction.entity.AccountTransaction;
 import com.bank.banking_api.transaction.repository.AccountTransactionRepository;
+import com.bank.banking_api.common.exception.ResourceNotFoundException;
+
 
 @Service
 public class TransactionService {
@@ -46,5 +50,27 @@ public class TransactionService {
         } while (accountTransactionRepository.existsByTransactionReference(reference));
 
         return reference;
+    }
+    
+    public List<TransactionResponse> getTransactionsForAccount(Long accountId) {
+        return accountTransactionRepository.findByAccountIdOrderByCreatedAtDesc(accountId)
+                .stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
+    
+    private TransactionResponse mapToResponse(AccountTransaction transaction) {
+        return new TransactionResponse(
+                transaction.getId(),
+                transaction.getAccount().getId(),
+                transaction.getTransactionReference(),
+                transaction.getType().name(),
+                transaction.getAmount(),
+                transaction.getCurrency(),
+                transaction.getBalanceAfter(),
+                transaction.getStatus().name(),
+                transaction.getDescription(),
+                transaction.getCreatedAt()
+        );
     }
 }

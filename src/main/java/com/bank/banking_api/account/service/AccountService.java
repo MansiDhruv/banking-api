@@ -18,6 +18,7 @@ import com.bank.banking_api.common.exception.InsufficientBalanceException;
 import com.bank.banking_api.common.exception.ResourceNotFoundException;
 import com.bank.banking_api.customer.entity.Customer;
 import com.bank.banking_api.customer.repository.CustomerRepository;
+import com.bank.banking_api.transaction.dto.TransactionResponse;
 import com.bank.banking_api.transaction.service.TransactionService;
 
 @Service
@@ -168,5 +169,13 @@ public class AccountService {
                 savedAccount.getBalance(),
                 savedAccount.getCurrency()
         );
+    }
+    
+    @Transactional(readOnly = true)
+    public List<TransactionResponse> getMyAccountTransactions(String email, Long accountId) {
+        Account account = accountRepository.findByIdAndCustomerUserEmail(accountId, email)
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found"));
+
+        return transactionService.getTransactionsForAccount(account.getId());
     }
 }
