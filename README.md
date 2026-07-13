@@ -42,30 +42,33 @@ A Spring Boot based Banking REST API built with Java 17, MySQL, Spring Security,
 
 ## APIs Implemented
 
+## APIs Implemented
+
 ### Health
 
-
+```http
 GET /api/v1/health
 GET /api/v1/health/error
 POST /api/v1/health/validate
-
+```
 
 ### Authentication
 
+```http
 POST /api/v1/auth/register
 POST /api/v1/auth/login
 GET /api/v1/auth/me
-
+```
 
 ### Customer
 
-
+```http
 GET /api/v1/customers/me
-
+```
 
 ### Accounts
 
-
+```http
 POST /api/v1/accounts
 GET /api/v1/accounts
 GET /api/v1/accounts/{accountId}
@@ -77,10 +80,12 @@ GET /api/v1/accounts/{accountId}/transactions
 
 ### Transfers
 
-
+```http
 POST /api/v1/transfers
 GET /api/v1/transfers
 ```
+
+
 Database Setup
 Create the database in MySQL:
 CREATE DATABASE banking_api_db;
