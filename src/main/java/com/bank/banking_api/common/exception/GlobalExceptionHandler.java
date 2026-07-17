@@ -61,4 +61,11 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST)
                 .body(ApiResponse.failure(ex.getMessage(), null));
     }
+    
+    @ExceptionHandler(InvalidAccountStateException.class)
+    public ResponseEntity<ApiResponse<Object>> handleInvalidAccountState(InvalidAccountStateException ex) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(ApiResponse.failure(ex.getMessage(), null));
+    }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,5 +37,13 @@ public class TransferController {
     public ApiResponse<List<TransferResponse>> getMyTransfers(Authentication authentication) {
         List<TransferResponse> response = transferService.getMyTransfers(authentication.getName());
         return ApiResponse.success("Transfers fetched successfully", response);
+    }
+    
+    @GetMapping("/api/v1/transfers/{transferId}")
+    public ApiResponse<TransferResponse> getMyTransferById(
+            Authentication authentication,
+            @PathVariable Long transferId) {
+        TransferResponse response = transferService.getMyTransferById(authentication.getName(), transferId);
+        return ApiResponse.success("Transfer fetched successfully", response);
     }
 }

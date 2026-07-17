@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -85,5 +86,13 @@ public class AccountController {
                 accountService.getMyAccountTransactions(authentication.getName(), accountId);
 
         return ApiResponse.success("Account transactions fetched successfully", response);
+    }
+    
+    @PatchMapping("/api/v1/accounts/{accountId}/close")
+    public ApiResponse<AccountResponse> closeAccount(
+            Authentication authentication,
+            @PathVariable Long accountId) {
+        AccountResponse response = accountService.closeAccount(authentication.getName(), accountId);
+        return ApiResponse.success("Account closed successfully", response);
     }
 }

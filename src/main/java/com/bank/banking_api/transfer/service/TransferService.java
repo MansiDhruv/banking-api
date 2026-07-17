@@ -132,5 +132,13 @@ public class TransferService {
         } while (transferRepository.existsByReference(reference));
 
         return reference;
+    }	
+    
+    @Transactional(readOnly = true)
+    public TransferResponse getMyTransferById(String email, Long transferId) {
+        Transfer transfer = transferRepository.findByIdAndFromAccountCustomerUserEmail(transferId, email)
+                .orElseThrow(() -> new ResourceNotFoundException("Transfer not found"));
+
+        return mapToResponse(transfer);
     }
 }

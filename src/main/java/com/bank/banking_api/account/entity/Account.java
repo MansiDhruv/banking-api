@@ -121,4 +121,9 @@ public class Account {
         this.balance = this.balance.subtract(amount);
         this.updatedAt = LocalDateTime.now();
     }
+    
+    public void close() {
+        this.status = AccountStatus.CLOSED;
+        this.updatedAt = LocalDateTime.now();
+    }
 }

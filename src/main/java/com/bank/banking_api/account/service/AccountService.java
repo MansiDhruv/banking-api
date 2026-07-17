@@ -1,5 +1,6 @@
 package com.bank.banking_api.account.service;
 
+import java.math.BigDecimal;
 import java.security.SecureRandom;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import com.bank.banking_api.account.repository.AccountRepository;
 import com.bank.banking_api.common.enums.AccountStatus;
 import com.bank.banking_api.common.enums.TransactionType;
 import com.bank.banking_api.common.exception.InsufficientBalanceException;
+import com.bank.banking_api.common.exception.InvalidAccountStateException;
 import com.bank.banking_api.common.exception.ResourceNotFoundException;
 import com.bank.banking_api.customer.entity.Customer;
 import com.bank.banking_api.customer.repository.CustomerRepository;
@@ -177,5 +179,25 @@ public class AccountService {
                 .orElseThrow(() -> new ResourceNotFoundException("Account not found"));
 
         return transactionService.getTransactionsForAccount(account.getId());
+    }
+    
+    @Transactional
+    public AccountResponse closeAccount(String email, Long accountId) {
+        Account account = accountRepository.findByIdAndCustomerUserEmail(accountId, email)
+                .orElseThrow(() -> new ResourceNotFoundException("Account not found"));
+
+        if (account.getStatus() == AccountStatus.CLOSED) {
+            throw new InvalidAccountStateException("Account is already closed");
+        }
+
+        if (account.getBalance().compareTo(BigDecimal.ZERO) > 0) {
+            throw new InvalidAccountStateException("Account balance must be zero before closing");
+        }
+
+        account.close();
+
+        Account savedAccount = accountRepository.save(account);
+
+        return mapToResponse(savedAccount);
     }
 }
