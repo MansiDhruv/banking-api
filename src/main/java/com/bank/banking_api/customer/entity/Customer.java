@@ -101,4 +101,9 @@ public class Customer {
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
+    
+    public void updateKycStatus(KycStatus kycStatus) {
+        this.kycStatus = kycStatus;
+        this.updatedAt = LocalDateTime.now();
+    }
 }

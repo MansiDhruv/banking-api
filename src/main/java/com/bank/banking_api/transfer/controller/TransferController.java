@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bank.banking_api.common.enums.TransferStatus;
 import com.bank.banking_api.common.response.ApiResponse;
+import com.bank.banking_api.common.response.PagedResponse;
 import com.bank.banking_api.transfer.dto.TransferRequest;
 import com.bank.banking_api.transfer.dto.TransferResponse;
 import com.bank.banking_api.transfer.service.TransferService;
@@ -34,8 +37,14 @@ public class TransferController {
     }
 
     @GetMapping("/api/v1/transfers")
-    public ApiResponse<List<TransferResponse>> getMyTransfers(Authentication authentication) {
-        List<TransferResponse> response = transferService.getMyTransfers(authentication.getName());
+    public ApiResponse<PagedResponse<TransferResponse>> searchMyTransfers(
+            Authentication authentication,
+            @RequestParam(required = false) TransferStatus status,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        PagedResponse<TransferResponse> response =
+                transferService.searchMyTransfers(authentication.getName(), status, page, size);
+
         return ApiResponse.success("Transfers fetched successfully", response);
     }
     

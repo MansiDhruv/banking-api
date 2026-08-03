@@ -3,15 +3,23 @@ package com.bank.banking_api.transfer.service;
 import java.security.SecureRandom;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bank.banking_api.account.entity.Account;
 import com.bank.banking_api.account.repository.AccountRepository;
+import com.bank.banking_api.audit.service.AuditService;
 import com.bank.banking_api.common.enums.AccountStatus;
 import com.bank.banking_api.common.enums.TransactionType;
+import com.bank.banking_api.common.enums.TransferStatus;
 import com.bank.banking_api.common.exception.InsufficientBalanceException;
 import com.bank.banking_api.common.exception.ResourceNotFoundException;
+import com.bank.banking_api.common.response.PagedResponse;
 import com.bank.banking_api.transaction.service.TransactionService;
 import com.bank.banking_api.transfer.dto.TransferRequest;
 import com.bank.banking_api.transfer.dto.TransferResponse;
@@ -26,13 +34,17 @@ public class TransferService {
     private final TransferRepository transferRepository;
     private final AccountRepository accountRepository;
     private final TransactionService transactionService;
+    
+    private final AuditService auditService;
 
     public TransferService(TransferRepository transferRepository,
                            AccountRepository accountRepository,
-                           TransactionService transactionService) {
+                           TransactionService transactionService,
+                           AuditService auditService) {
         this.transferRepository = transferRepository;
         this.accountRepository = accountRepository;
         this.transactionService = transactionService;
+        this.auditService = auditService;
     }
 
     @Transactional
@@ -95,16 +107,45 @@ public class TransferService {
         savedTransfer.markSuccess();
 
         Transfer completedTransfer = transferRepository.save(savedTransfer);
+        
+        auditService.log(
+                fromAccount.getCustomer().getUser(),
+                "TRANSFER_COMPLETED",
+                "TRANSFER",
+                completedTransfer.getId().toString(),
+                "Transferred " + request.getAmount() + " " + completedTransfer.getCurrency()
+                        + " from account " + fromAccount.getAccountNumber()
+                        + " to account " + toAccount.getAccountNumber()
+        );
 
         return mapToResponse(completedTransfer);
     }
-
+    
     @Transactional(readOnly = true)
-    public List<TransferResponse> getMyTransfers(String email) {
-        return transferRepository.findByFromAccountCustomerUserEmailOrderByCreatedAtDesc(email)
-                .stream()
-                .map(this::mapToResponse)
-                .toList();
+    public PagedResponse<TransferResponse> searchMyTransfers(String email, TransferStatus status,
+                                                             int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt"));
+
+        Specification<Transfer> spec = Specification.where(
+                (root, query, cb) -> cb.equal(root.get("fromAccount").get("customer").get("user").get("email"), email)
+        );
+
+        if (status != null) {
+            spec = spec.and((root, query, cb) -> cb.equal(root.get("status"), status));
+        }
+
+        Page<Transfer> transferPage = transferRepository.findAll(spec, pageable);
+
+        return new PagedResponse<>(
+                transferPage.getContent().stream()
+                        .map(this::mapToResponse)
+                        .toList(),
+                transferPage.getNumber(),
+                transferPage.getSize(),
+                transferPage.getTotalElements(),
+                transferPage.getTotalPages(),
+                transferPage.isLast()
+        );
     }
 
     private TransferResponse mapToResponse(Transfer transfer) {

@@ -126,4 +126,14 @@ public class Account {
         this.status = AccountStatus.CLOSED;
         this.updatedAt = LocalDateTime.now();
     }
+    
+    public void freeze() {
+        this.status = AccountStatus.FROZEN;
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void unfreeze() {
+        this.status = AccountStatus.ACTIVE;
+        this.updatedAt = LocalDateTime.now();
+    }
 }

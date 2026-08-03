@@ -2,6 +2,8 @@ package com.bank.banking_api.common.response;
 
 import java.time.LocalDateTime;
 
+import com.bank.banking_api.audit.dto.AuditLogResponse;
+
 public class ApiResponse<T> {
 
     private boolean success;
@@ -15,10 +17,11 @@ public class ApiResponse<T> {
         this.data = data;
         this.timestamp = timestamp;
     }
-
+    
     public static <T> ApiResponse<T> success(String message, T data) {
         return new ApiResponse<>(true, message, data, LocalDateTime.now());
     }
+
 
     public static <T> ApiResponse<T> failure(String message, T data) {
         return new ApiResponse<>(false, message, data, LocalDateTime.now());

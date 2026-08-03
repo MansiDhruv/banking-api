@@ -11,8 +11,7 @@ import com.bank.banking_api.common.enums.UserStatus;
 import com.bank.banking_api.common.exception.DuplicateResourceException;
 import com.bank.banking_api.user.entity.User;
 import com.bank.banking_api.user.repository.UserRepository;
-
-
+import com.bank.banking_api.audit.service.AuditService;
 import com.bank.banking_api.auth.dto.LoginRequest;
 import com.bank.banking_api.auth.dto.LoginResponse;
 import com.bank.banking_api.common.exception.InvalidCredentialsException;
@@ -29,12 +28,15 @@ public class AuthService {
     private final JwtTokenProvider jwtTokenProvider;
     private final CustomerRepository customerRepository;
     
+    private final AuditService auditService;
+    
 	public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder,
-			JwtTokenProvider jwtTokenProvider, CustomerRepository customerRepository) {
+			JwtTokenProvider jwtTokenProvider, CustomerRepository customerRepository,  AuditService auditService) {
 		this.userRepository = userRepository;
 		this.passwordEncoder = passwordEncoder;
 		this.jwtTokenProvider = jwtTokenProvider;
 		this.customerRepository = customerRepository;
+		this.auditService = auditService;
 	}
 
 	@Transactional
@@ -63,6 +65,14 @@ public class AuthService {
 	    );
 
 	    Customer savedCustomer = customerRepository.save(customer);
+	    
+	    auditService.log(
+	            savedUser,
+	            "USER_REGISTERED",
+	            "USER",
+	            savedUser.getId().toString(),
+	            "Customer profile created with customer ID " + savedCustomer.getId()
+	    );
 
 	    return new RegisterResponse(
 	            savedUser.getId(),
@@ -88,6 +98,14 @@ public class AuthService {
         }
         
         String accessToken = jwtTokenProvider.generateToken(user);
+        
+        auditService.log(
+                user,
+                "USER_LOGGED_IN",
+                "USER",
+                user.getId().toString(),
+                "User logged in successfully"
+        );
 
         return new LoginResponse(
                 user.getId(),

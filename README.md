@@ -39,8 +39,13 @@ A Spring Boot based Banking REST API built with Java 17, MySQL, Spring Security,
 - Transaction history by account
 - Internal account-to-account transfer
 - Transfer history for source account owner
-
-## APIs Implemented
+- Admin customer search and detail APIs
+- KYC status update by admin/bank staff
+- Admin account search with filters
+- Account freeze and unfreeze by admin/bank staff
+- Audit log APIs with pagination and filtering
+- Transaction history with pagination and filtering
+- Transfer history with pagination and filtering
 
 ## APIs Implemented
 
@@ -76,6 +81,8 @@ GET /api/v1/accounts/{accountId}/balance
 POST /api/v1/accounts/{accountId}/deposit
 POST /api/v1/accounts/{accountId}/withdraw
 GET /api/v1/accounts/{accountId}/transactions
+PATCH /api/v1/accounts/{accountId}/close
+GET /api/v1/accounts/{accountId}/transactions
 ```
 
 ### Transfers
@@ -83,8 +90,27 @@ GET /api/v1/accounts/{accountId}/transactions
 ```http
 POST /api/v1/transfers
 GET /api/v1/transfers
+GET /api/v1/transfers/{transferId}
 ```
 
+### Admin Customers
+
+```http
+GET /api/v1/admin/customers
+GET /api/v1/admin/customers/{customerId}
+PATCH /api/v1/admin/customers/{customerId}/kyc-status
+```
+
+
+### Admin Accounts
+
+```http
+GET /api/v1/admin/accounts
+PATCH /api/v1/admin/accounts/{accountId}/freeze
+PATCH /api/v1/admin/accounts/{accountId}/unfreeze
+
+GET /api/v1/admin/audit-logs
+```
 
 Database Setup
 Create the database in MySQL:
@@ -128,14 +154,15 @@ V3__create_customers_table.sql
 V4__create_accounts_table.sql
 V5__create_account_transactions_table.sql
 V6__create_transfers_table.sql
+V7__create_audit_logs_table.sql
 
-Do not modify already-applied migration files. Create a new versioned migration instead.
 
-# Upcoming Features
-- Get transfer by ID
-- Account freeze, unfreeze, and close APIs
-- Admin and bank staff role-based APIs
-- Audit logging
+
+## Upcoming Features
+
 - Refresh token flow
-- Unit and integration tests
-- Docker support
+- Unit tests
+- Integration tests
+- Docker and Docker Compose support
+- Final Postman collection
+- Architecture and database diagrams
