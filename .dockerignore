@@ -1,0 +1,6 @@
+.git/
+.settings/
+.classpath
+.project
+*.log
+src/main/resources/application-dev.properties

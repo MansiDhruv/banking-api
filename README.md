@@ -15,6 +15,8 @@ A Spring Boot based Banking REST API built with Java 17, MySQL, Spring Security,
 - Bean Validation
 - Swagger / OpenAPI
 - Maven
+- Docker
+- Docker Compose
 
 ## Current Features
 
@@ -46,6 +48,7 @@ A Spring Boot based Banking REST API built with Java 17, MySQL, Spring Security,
 - Audit log APIs with pagination and filtering
 - Transaction history with pagination and filtering
 - Transfer history with pagination and filtering
+- Docker support with MySQL and Spring Boot using Docker Compose
 
 ## APIs Implemented
 
@@ -157,12 +160,97 @@ V6__create_transfers_table.sql
 V7__create_audit_logs_table.sql
 
 
+## Run With Docker
+
+This project includes Docker support for running the Banking API with a MySQL database.
+
+### Prerequisites
+
+- Docker Desktop
+- Maven
+
+### Build Application Jar
+
+```bash
+mvn clean package -DskipTests
+```
+
+### Start Application With Docker Compose
+
+```bash
+docker compose up --build
+```
+
+This starts:
+
+```text
+banking-api
+banking-mysql
+```
+
+### Access Application
+
+Swagger UI:
+
+```text
+http://localhost:8080/swagger-ui.html
+```
+
+Health API:
+
+```text
+http://localhost:8080/api/v1/health
+```
+
+### MySQL Docker Details
+
+Docker MySQL runs inside the container on port `3306`.
+
+It is exposed on the local machine as:
+
+```text
+localhost:3307
+```
+
+Database name:
+
+```text
+banking_api_db
+```
+
+Default Docker database credentials used in `docker-compose.yml`:
+
+```text
+Username: root
+Password: root
+```
+
+The Spring Boot app connects to MySQL inside Docker using the Docker service name:
+
+```text
+jdbc:mysql://mysql:3306/banking_api_db
+```
+
+### Stop Containers
+
+```bash
+docker compose down
+```
+
+### Remove Containers And Database Volume
+
+Use this only if you want to delete Docker MySQL data and start fresh:
+
+```bash
+docker compose down -v
+```
+
+After running with `-v`, Flyway migrations will run again and recreate the schema.
 
 ## Upcoming Features
 
 - Refresh token flow
 - Unit tests
 - Integration tests
-- Docker and Docker Compose support
 - Final Postman collection
 - Architecture and database diagrams
