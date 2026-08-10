@@ -247,6 +247,29 @@ docker compose down -v
 
 After running with `-v`, Flyway migrations will run again and recreate the schema.
 
+## Postman Collection
+
+Postman collection and local environment files are available in:
+
+```text
+postman/
+Import both files into Postman:
+Banking-API.postman_collection.json
+Banking-API-Local.postman_environment.json
+
+Select the Banking API Local environment before running requests.
+The collection includes flows for:
+Health check
+Registration and login
+Customer profile
+Account creation
+Deposit and withdrawal
+Transaction history
+Transfers
+Admin customer/account APIs
+Audit logs
+```
+
 ## Upcoming Features
 
 - Refresh token flow

@@ -1,0 +1,3304 @@
+{
+  "info": {
+    "_postman_id": "76a192b8-12d3-4184-8877-8fa18c669d99",
+    "name": "Banking API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "43886508"
+  },
+  "item": [
+    {
+      "name": "01 Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "health"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Health Check",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/health",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 12:41:04 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Banking API is running\",\n    \"data\": {\n        \"status\": \"UP\",\n        \"timestamp\": \"2026-08-08T08:41:04.7261437\",\n        \"service\": \"banking-api\"\n    },\n    \"timestamp\": \"2026-08-08T08:41:04.7261437\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "02 Auth",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"{{userEmail}}\",\r\n  \"password\": \"{{userPassword}}\",\r\n  \"firstName\": \"Postman\",\r\n  \"lastName\": \"User\",\r\n  \"phone\": \"1234567890\",\r\n  \"dateOfBirth\": \"1995-05-15\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Register User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"{{userEmail}}\",\r\n  \"password\": \"{{userPassword}}\",\r\n  \"firstName\": \"Postman\",\r\n  \"lastName\": \"User\",\r\n  \"phone\": \"1234567890\",\r\n  \"dateOfBirth\": \"1995-05-15\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 12:40:27 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"userId\": 11,\n        \"customerId\": 9,\n        \"email\": \"UserA1@example.com\",\n        \"fullName\": \"Postman User\",\n        \"role\": \"CUSTOMER\",\n        \"status\": \"ACTIVE\",\n        \"kycStatus\": \"PENDING\"\n    },\n    \"timestamp\": \"2026-08-08T08:40:27.1815403\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Login User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Login response status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const json = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Login response has access token\", function () {\r",
+                  "    pm.expect(json.success).to.eql(true);\r",
+                  "    pm.expect(json.data).to.have.property(\"accessToken\");\r",
+                  "    pm.expect(json.data.accessToken).to.not.be.empty;\r",
+                  "});\r",
+                  "\r",
+                  "if (json.success && json.data && json.data.accessToken) {\r",
+                  "    pm.environment.set(\"accessToken\", json.data.accessToken);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"{{userEmail}}\",\r\n  \"password\": \"{{userPassword}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Destination User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Login response status is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "const json = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"Login response has access token\", function () {\r",
+                  "    pm.expect(json.success).to.eql(true);\r",
+                  "    pm.expect(json.data).to.have.property(\"accessToken\");\r",
+                  "    pm.expect(json.data.accessToken).to.not.be.empty;\r",
+                  "});\r",
+                  "\r",
+                  "if (json.success && json.data && json.data.accessToken) {\r",
+                  "    pm.environment.set(\"destinationToken\", json.data.accessToken);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"{{destinationEmail}}\",\r\n  \"password\": \"{{userPassword}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login Destination User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"{{destinationEmail}}\",\r\n  \"password\": \"{{userPassword}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:15:22 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"userId\": 12,\n        \"email\": \"UserA2@example.com\",\n        \"role\": \"CUSTOMER\",\n        \"status\": \"ACTIVE\",\n        \"accessToken\": \"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJVc2VyQTJAZXhhbXBsZS5jb20iLCJ1c2VySWQiOjEyLCJyb2xlIjoiQ1VTVE9NRVIiLCJpYXQiOjE3ODYxOTQ5MjIsImV4cCI6MTc4NjE5ODUyMn0.KBQwnelBKLnwckLMAmMZvozkF5ihfWwb3mmQyHEOmEUkwOcovRx5ga39iAQhA4Jw\",\n        \"tokenType\": \"Bearer\"\n    },\n    \"timestamp\": \"2026-08-08T09:15:22.7603211\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Auth me",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Auth me",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/auth/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 12:51:20 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Authenticated user fetched\",\n    \"data\": \"UserA1@example.com\",\n    \"timestamp\": \"2026-08-08T08:51:20.5521001\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Register Destination User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"{{destinationEmail}}\",\r\n  \"password\": \"{{userPassword}}\",\r\n  \"firstName\": \"Destination\",\r\n  \"lastName\": \"User\",\r\n  \"phone\": \"1234567890\",\r\n  \"dateOfBirth\": \"1995-05-15\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Register Destination User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"{{destinationEmail}}\",\r\n  \"password\": \"{{userPassword}}\",\r\n  \"firstName\": \"Destination\",\r\n  \"lastName\": \"User\",\r\n  \"phone\": \"1234567890\",\r\n  \"dateOfBirth\": \"1995-05-15\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:13:35 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"userId\": 12,\n        \"customerId\": 10,\n        \"email\": \"UserA2@example.com\",\n        \"fullName\": \"Destination User\",\n        \"role\": \"CUSTOMER\",\n        \"status\": \"ACTIVE\",\n        \"kycStatus\": \"PENDING\"\n    },\n    \"timestamp\": \"2026-08-08T09:13:35.8480496\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "03 Customer",
+      "item": [
+        {
+          "name": "Get My Customer Profile",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();\r",
+                  "\r",
+                  "if (json.success && json.data && json.data.customerId) {\r",
+                  "    pm.environment.set(\"customerId\", json.data.customerId);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/customers/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "customers",
+                "me"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get My Customer Profile",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/customers/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "customers",
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 12:55:54 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Customer profile fetched successfully\",\n    \"data\": {\n        \"customerId\": 9,\n        \"userId\": 11,\n        \"email\": \"UserA1@example.com\",\n        \"firstName\": \"Postman\",\n        \"lastName\": \"User\",\n        \"phone\": \"1234567890\",\n        \"dateOfBirth\": \"1995-05-15\",\n        \"kycStatus\": \"PENDING\"\n    },\n    \"timestamp\": \"2026-08-08T08:55:54.1567499\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "04 Accounts",
+      "item": [
+        {
+          "name": "Create Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();\r",
+                  "\r",
+                  "if (json.success && json.data) {\r",
+                  "    pm.environment.set(\"accountId\", json.data.accountId);\r",
+                  "    pm.environment.set(\"accountNumber\", json.data.accountNumber);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"accountType\": \"SAVINGS\",\r\n  \"currency\": \"USD\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Account",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountType\": \"SAVINGS\",\r\n  \"currency\": \"USD\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 12:55:43 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account created successfully\",\n    \"data\": {\n        \"accountId\": 12,\n        \"accountNumber\": \"108440909519\",\n        \"accountType\": \"SAVINGS\",\n        \"balance\": 0,\n        \"currency\": \"USD\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2026-08-08T08:55:43.0764408\"\n    },\n    \"timestamp\": \"2026-08-08T08:55:43.2609313\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Destination Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();\r",
+                  "\r",
+                  "if (json.success && json.data) {\r",
+                  "    pm.environment.set(\"destinationAccountId\", json.data.accountId);\r",
+                  "    pm.environment.set(\"destinationAccountNumber\", json.data.accountNumber);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"accountType\": \"SAVINGS\",\r\n  \"currency\": \"USD\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create Account",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"accountType\": \"SAVINGS\",\r\n  \"currency\": \"USD\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 12:55:43 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account created successfully\",\n    \"data\": {\n        \"accountId\": 12,\n        \"accountNumber\": \"108440909519\",\n        \"accountType\": \"SAVINGS\",\n        \"balance\": 0,\n        \"currency\": \"USD\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2026-08-08T08:55:43.0764408\"\n    },\n    \"timestamp\": \"2026-08-08T08:55:43.2609313\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Account Balance",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/balance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}",
+                "balance"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Account Balance",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/balance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts",
+                    "{{accountId}}",
+                    "balance"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 12:59:28 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account balance fetched successfully\",\n    \"data\": {\n        \"accountId\": 11,\n        \"accountNumber\": \"103882671261\",\n        \"balance\": 0,\n        \"currency\": \"USD\"\n    },\n    \"timestamp\": \"2026-08-08T08:59:28.2809482\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get My Accounts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();\r",
+                  "\r",
+                  "if (json.success && Array.isArray(json.data) && json.data.length > 0) {\r",
+                  "    pm.environment.set(\"accountId\", json.data[0].accountId);\r",
+                  "    pm.environment.set(\"accountNumber\", json.data[0].accountNumber);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get My Accounts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 12:57:42 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Accounts fetched successfully\",\n    \"data\": [\n        {\n            \"accountId\": 11,\n            \"accountNumber\": \"103882671261\",\n            \"accountType\": \"SAVINGS\",\n            \"balance\": 0,\n            \"currency\": \"USD\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-08-08T08:55:34\"\n        },\n        {\n            \"accountId\": 12,\n            \"accountNumber\": \"108440909519\",\n            \"accountType\": \"SAVINGS\",\n            \"balance\": 0,\n            \"currency\": \"USD\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-08-08T08:55:43\"\n        },\n        {\n            \"accountId\": 13,\n            \"accountNumber\": \"104258752781\",\n            \"accountType\": \"SAVINGS\",\n            \"balance\": 0,\n            \"currency\": \"USD\",\n            \"status\": \"ACTIVE\",\n            \"createdAt\": \"2026-08-08T08:56:16\"\n        }\n    ],\n    \"timestamp\": \"2026-08-08T08:57:42.569932\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Deposit Money",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"amount\": 1000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/deposit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}",
+                "deposit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Withdraw Money",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"amount\": 1000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/withdraw",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}",
+                "withdraw"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Withdraw Money",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"amount\": 100.00\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/withdraw",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts",
+                    "{{accountId}}",
+                    "withdraw"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:07:59 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Amount withdrawn successfully\",\n    \"data\": {\n        \"accountId\": 11,\n        \"accountNumber\": \"103882671261\",\n        \"balance\": 900,\n        \"currency\": \"USD\"\n    },\n    \"timestamp\": \"2026-08-08T09:07:59.7329072\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Deposit To Frozen Account - Negative Test",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"amount\" : 100.00\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/deposit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}",
+                "deposit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Close Account",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/close",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}",
+                "close"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Close Account",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/close",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts",
+                    "{{accountId}}",
+                    "close"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 10 Aug 2026 13:48:44 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account closed successfully\",\n    \"data\": {\n        \"accountId\": 11,\n        \"accountNumber\": \"103882671261\",\n        \"accountType\": \"SAVINGS\",\n        \"balance\": 0,\n        \"currency\": \"USD\",\n        \"status\": \"CLOSED\",\n        \"createdAt\": \"2026-08-08T08:55:34\"\n    },\n    \"timestamp\": \"2026-08-10T09:48:44.1612423\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "05 Transactions",
+      "item": [
+        {
+          "name": "Get Account Transactions",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/transactions?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Account Transactions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/transactions?page=0&size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts",
+                    "{{accountId}}",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:09:46 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account transactions fetched successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"transactionId\": 20,\n                \"accountId\": 11,\n                \"transactionReference\": \"TXN1786194479685540\",\n                \"type\": \"WITHDRAWAL\",\n                \"amount\": 100,\n                \"currency\": \"USD\",\n                \"balanceAfter\": 900,\n                \"status\": \"SUCCESS\",\n                \"description\": \"Withdrawal from account\",\n                \"createdAt\": \"2026-08-08T09:08:00\"\n            },\n            {\n                \"transactionId\": 19,\n                \"accountId\": 11,\n                \"transactionReference\": \"TXN17861944204268369\",\n                \"type\": \"DEPOSIT\",\n                \"amount\": 500,\n                \"currency\": \"USD\",\n                \"balanceAfter\": 1000,\n                \"status\": \"SUCCESS\",\n                \"description\": \"Deposit to account\",\n                \"createdAt\": \"2026-08-08T09:07:00\"\n            },\n            {\n                \"transactionId\": 18,\n                \"accountId\": 11,\n                \"transactionReference\": \"TXN17861940402288493\",\n                \"type\": \"DEPOSIT\",\n                \"amount\": 500,\n                \"currency\": \"USD\",\n                \"balanceAfter\": 500,\n                \"status\": \"SUCCESS\",\n                \"description\": \"Deposit to account\",\n                \"createdAt\": \"2026-08-08T09:00:40\"\n            }\n        ],\n        \"page\": 0,\n        \"size\": 10,\n        \"totalElements\": 3,\n        \"totalPages\": 1,\n        \"last\": true\n    },\n    \"timestamp\": \"2026-08-08T09:09:46.0033331\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Account Transactions only deposit",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/transactions?type=DEPOSIT&page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "DEPOSIT"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Account Transactions only deposit",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/transactions?type=DEPOSIT&page=0&size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts",
+                    "{{accountId}}",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "DEPOSIT"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:10:53 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account transactions fetched successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"transactionId\": 19,\n                \"accountId\": 11,\n                \"transactionReference\": \"TXN17861944204268369\",\n                \"type\": \"DEPOSIT\",\n                \"amount\": 500,\n                \"currency\": \"USD\",\n                \"balanceAfter\": 1000,\n                \"status\": \"SUCCESS\",\n                \"description\": \"Deposit to account\",\n                \"createdAt\": \"2026-08-08T09:07:00\"\n            },\n            {\n                \"transactionId\": 18,\n                \"accountId\": 11,\n                \"transactionReference\": \"TXN17861940402288493\",\n                \"type\": \"DEPOSIT\",\n                \"amount\": 500,\n                \"currency\": \"USD\",\n                \"balanceAfter\": 500,\n                \"status\": \"SUCCESS\",\n                \"description\": \"Deposit to account\",\n                \"createdAt\": \"2026-08-08T09:00:40\"\n            }\n        ],\n        \"page\": 0,\n        \"size\": 10,\n        \"totalElements\": 2,\n        \"totalPages\": 1,\n        \"last\": true\n    },\n    \"timestamp\": \"2026-08-08T09:10:53.1246548\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Account Transactions only withdraw",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/transactions?type=WITHDRAWAL&page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "accounts",
+                "{{accountId}}",
+                "transactions"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "WITHDRAWAL"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Account Transactions only withdraw",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/accounts/{{accountId}}/transactions?type=WITHDRAWAL&page=0&size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "accounts",
+                    "{{accountId}}",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "WITHDRAWAL"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:12:14 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account transactions fetched successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"transactionId\": 20,\n                \"accountId\": 11,\n                \"transactionReference\": \"TXN1786194479685540\",\n                \"type\": \"WITHDRAWAL\",\n                \"amount\": 100,\n                \"currency\": \"USD\",\n                \"balanceAfter\": 900,\n                \"status\": \"SUCCESS\",\n                \"description\": \"Withdrawal from account\",\n                \"createdAt\": \"2026-08-08T09:08:00\"\n            }\n        ],\n        \"page\": 0,\n        \"size\": 10,\n        \"totalElements\": 1,\n        \"totalPages\": 1,\n        \"last\": true\n    },\n    \"timestamp\": \"2026-08-08T09:12:14.0583091\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "06 Transfers",
+      "item": [
+        {
+          "name": "Transfer Money",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();\r",
+                  "\r",
+                  "if (json.success && json.data && json.data.transferId) {\r",
+                  "    pm.environment.set(\"transferId\", json.data.transferId);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fromAccountId\": {{accountId}},\r\n  \"toAccountNumber\": \"{{destinationAccountNumber}}\",\r\n  \"amount\": 50.00,\r\n  \"description\": \"Postman transfer test\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/transfers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "transfers"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Transfer Money",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"fromAccountId\": {{accountId}},\r\n  \"toAccountNumber\": \"{{destinationAccountNumber}}\",\r\n  \"amount\": 50.00,\r\n  \"description\": \"Postman transfer test\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/transfers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "transfers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:24:47 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Transfer completed successfully\",\n    \"data\": {\n        \"transferId\": 3,\n        \"reference\": \"TRF17861954869191934\",\n        \"fromAccountId\": 14,\n        \"fromAccountNumber\": \"103235572678\",\n        \"toAccountId\": 15,\n        \"toAccountNumber\": \"106185856709\",\n        \"amount\": 50,\n        \"currency\": \"USD\",\n        \"status\": \"SUCCESS\",\n        \"description\": \"Postman transfer test\",\n        \"createdAt\": \"2026-08-08T09:24:47.0229452\",\n        \"completedAt\": \"2026-08-08T09:24:47.0473333\"\n    },\n    \"timestamp\": \"2026-08-08T09:24:47.0892713\"\n}"
+            },
+            {
+              "name": "Transfer Money",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"fromAccountId\": {{accountId}},\r\n  \"toAccountNumber\": \"{{destinationAccountNumber}}\",\r\n  \"amount\": 50.00,\r\n  \"description\": \"Postman transfer test\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/transfers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "transfers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:25:11 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Transfer completed successfully\",\n    \"data\": {\n        \"transferId\": 4,\n        \"reference\": \"TRF17861955116319082\",\n        \"fromAccountId\": 14,\n        \"fromAccountNumber\": \"103235572678\",\n        \"toAccountId\": 15,\n        \"toAccountNumber\": \"106185856709\",\n        \"amount\": 50,\n        \"currency\": \"USD\",\n        \"status\": \"SUCCESS\",\n        \"description\": \"Postman transfer test\",\n        \"createdAt\": \"2026-08-08T09:25:11.6342066\",\n        \"completedAt\": \"2026-08-08T09:25:11.6521112\"\n    },\n    \"timestamp\": \"2026-08-08T09:25:11.6811033\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get My Transfers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/transfers?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "transfers"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get My Transfers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/transfers?page=0&size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "transfers"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:33:04 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Transfers fetched successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"transferId\": 4,\n                \"reference\": \"TRF17861955116319082\",\n                \"fromAccountId\": 14,\n                \"fromAccountNumber\": \"103235572678\",\n                \"toAccountId\": 15,\n                \"toAccountNumber\": \"106185856709\",\n                \"amount\": 50,\n                \"currency\": \"USD\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Postman transfer test\",\n                \"createdAt\": \"2026-08-08T09:25:12\",\n                \"completedAt\": \"2026-08-08T09:25:12\"\n            },\n            {\n                \"transferId\": 3,\n                \"reference\": \"TRF17861954869191934\",\n                \"fromAccountId\": 14,\n                \"fromAccountNumber\": \"103235572678\",\n                \"toAccountId\": 15,\n                \"toAccountNumber\": \"106185856709\",\n                \"amount\": 50,\n                \"currency\": \"USD\",\n                \"status\": \"SUCCESS\",\n                \"description\": \"Postman transfer test\",\n                \"createdAt\": \"2026-08-08T09:24:47\",\n                \"completedAt\": \"2026-08-08T09:24:47\"\n            }\n        ],\n        \"page\": 0,\n        \"size\": 10,\n        \"totalElements\": 2,\n        \"totalPages\": 1,\n        \"last\": true\n    },\n    \"timestamp\": \"2026-08-08T09:33:04.4713786\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Transfer By ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/transfers/{{transferId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "transfers",
+                "{{transferId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Transfer By ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/transfers/{{transferId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "transfers",
+                    "{{transferId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:34:57 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Transfer fetched successfully\",\n    \"data\": {\n        \"transferId\": 4,\n        \"reference\": \"TRF17861955116319082\",\n        \"fromAccountId\": 14,\n        \"fromAccountNumber\": \"103235572678\",\n        \"toAccountId\": 15,\n        \"toAccountNumber\": \"106185856709\",\n        \"amount\": 50,\n        \"currency\": \"USD\",\n        \"status\": \"SUCCESS\",\n        \"description\": \"Postman transfer test\",\n        \"createdAt\": \"2026-08-08T09:25:12\",\n        \"completedAt\": \"2026-08-08T09:25:12\"\n    },\n    \"timestamp\": \"2026-08-08T09:34:57.3807019\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "07 Admin",
+      "item": [
+        {
+          "name": "Login Admin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();\r",
+                  "\r",
+                  "if (json.success && json.data && json.data.accessToken) {\r",
+                  "    pm.environment.set(\"adminToken\", json.data.accessToken);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"{{userEmail}}\",\r\n  \"password\": \"{{userPassword}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Login Admin",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"email\": \"{{userEmail}}\",\r\n  \"password\": \"{{userPassword}}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:45:50 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"userId\": 11,\n        \"email\": \"UserA1@example.com\",\n        \"role\": \"ADMIN\",\n        \"status\": \"ACTIVE\",\n        \"accessToken\": \"eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJVc2VyQTFAZXhhbXBsZS5jb20iLCJ1c2VySWQiOjExLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3ODYxOTY3NTAsImV4cCI6MTc4NjIwMDM1MH0.vR2Li0ZWq52DJOFB-bF3MZEGcgH3bAl2npK09mEY8On_YL8PyIXIB-Tx7F05dIFV\",\n        \"tokenType\": \"Bearer\"\n    },\n    \"timestamp\": \"2026-08-08T09:45:50.1382373\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Admin Search Customers",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/admin/customers?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "customers"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Admin Search Customers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/admin/customers?page=0&size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "customers"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:46:55 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Customers fetched successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"customerId\": 10,\n                \"userId\": 12,\n                \"email\": \"UserA2@example.com\",\n                \"firstName\": \"Destination\",\n                \"lastName\": \"User\",\n                \"phone\": \"1234567890\",\n                \"dateOfBirth\": \"1995-05-15\",\n                \"kycStatus\": \"PENDING\"\n            },\n            {\n                \"customerId\": 9,\n                \"userId\": 11,\n                \"email\": \"UserA1@example.com\",\n                \"firstName\": \"Postman\",\n                \"lastName\": \"User\",\n                \"phone\": \"1234567890\",\n                \"dateOfBirth\": \"1995-05-15\",\n                \"kycStatus\": \"PENDING\"\n            },\n            {\n                \"customerId\": 8,\n                \"userId\": 10,\n                \"email\": \"Dhruv2507@example.com\",\n                \"firstName\": \"Dhruv\",\n                \"lastName\": \"Trivedi\",\n                \"phone\": \"9893494334\",\n                \"dateOfBirth\": \"1996-07-25\",\n                \"kycStatus\": \"PENDING\"\n            },\n            {\n                \"customerId\": 7,\n                \"userId\": 9,\n                \"email\": \"Mansi2507@example.com\",\n                \"firstName\": \"Mansi\",\n                \"lastName\": \"Trivedi\",\n                \"phone\": \"9893497334\",\n                \"dateOfBirth\": \"1996-07-25\",\n                \"kycStatus\": \"VERIFIED\"\n            },\n            {\n                \"customerId\": 6,\n                \"userId\": 8,\n                \"email\": \"Kajol0106@example.com\",\n                \"firstName\": \"Kajol\",\n                \"lastName\": \"Shah\",\n                \"phone\": \"9797974763\",\n                \"dateOfBirth\": \"1995-06-01\",\n                \"kycStatus\": \"PENDING\"\n            },\n            {\n                \"customerId\": 5,\n                \"userId\": 7,\n                \"email\": \"Harsh137@example.com\",\n                \"firstName\": \"Harsh\",\n                \"lastName\": \"Trivedi\",\n                \"phone\": \"8869797668\",\n                \"dateOfBirth\": \"1999-07-13\",\n                \"kycStatus\": \"PENDING\"\n            },\n            {\n                \"customerId\": 4,\n                \"userId\": 6,\n                \"email\": \"Dhruv137@example.com\",\n                \"firstName\": \"Dhruv\",\n                \"lastName\": \"Trivedi\",\n                \"phone\": \"905334569\",\n                \"dateOfBirth\": \"1996-07-13\",\n                \"kycStatus\": \"PENDING\"\n            },\n            {\n                \"customerId\": 3,\n                \"userId\": 5,\n                \"email\": \"userMansi11@example.com\",\n                \"firstName\": \"Mansi\",\n                \"lastName\": \"Trivedi\",\n                \"phone\": \"9797979111\",\n                \"dateOfBirth\": \"1996-07-11\",\n                \"kycStatus\": \"PENDING\"\n            },\n            {\n                \"customerId\": 2,\n                \"userId\": 4,\n                \"email\": \"user6@example.com\",\n                \"firstName\": \"Kiran\",\n                \"lastName\": \"Patel\",\n                \"phone\": \"878878686\",\n                \"dateOfBirth\": \"1996-07-01\",\n                \"kycStatus\": \"PENDING\"\n            },\n            {\n                \"customerId\": 1,\n                \"userId\": 3,\n                \"email\": \"newcustomer@example.com\",\n                \"firstName\": \"Mansi\",\n                \"lastName\": \"Trivedi\",\n                \"phone\": \"1234567890\",\n                \"dateOfBirth\": \"1995-05-15\",\n                \"kycStatus\": \"PENDING\"\n            }\n        ],\n        \"page\": 0,\n        \"size\": 10,\n        \"totalElements\": 10,\n        \"totalPages\": 1,\n        \"last\": true\n    },\n    \"timestamp\": \"2026-08-08T09:46:55.6724216\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Admin Search Accounts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/admin/accounts?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "accounts"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Admin Search Accounts",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/admin/accounts?page=0&size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "accounts"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:47:53 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Accounts fetched successfully\",\n    \"data\": {\n        \"content\": [\n            {\n                \"accountId\": 15,\n                \"accountNumber\": \"106185856709\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 1100,\n                \"currency\": \"USD\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-08-08T09:16:27\"\n            },\n            {\n                \"accountId\": 14,\n                \"accountNumber\": \"103235572678\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 900,\n                \"currency\": \"USD\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-08-08T09:16:14\"\n            },\n            {\n                \"accountId\": 13,\n                \"accountNumber\": \"104258752781\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 0,\n                \"currency\": \"USD\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-08-08T08:56:16\"\n            },\n            {\n                \"accountId\": 12,\n                \"accountNumber\": \"108440909519\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 0,\n                \"currency\": \"USD\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-08-08T08:55:43\"\n            },\n            {\n                \"accountId\": 11,\n                \"accountNumber\": \"103882671261\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 900,\n                \"currency\": \"USD\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-08-08T08:55:34\"\n            },\n            {\n                \"accountId\": 10,\n                \"accountNumber\": \"109193377087\",\n                \"accountType\": \"CHECKING\",\n                \"balance\": 0,\n                \"currency\": \"USD\",\n                \"status\": \"CLOSED\",\n                \"createdAt\": \"2026-07-25T13:35:17\"\n            },\n            {\n                \"accountId\": 9,\n                \"accountNumber\": \"105117266349\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 0,\n                \"currency\": \"USD\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-25T13:29:23\"\n            },\n            {\n                \"accountId\": 8,\n                \"accountNumber\": \"107690705827\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 1800,\n                \"currency\": \"USD\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-25T13:10:09\"\n            },\n            {\n                \"accountId\": 7,\n                \"accountNumber\": \"107009439478\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 0,\n                \"currency\": \"USA\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-20T10:26:52\"\n            },\n            {\n                \"accountId\": 6,\n                \"accountNumber\": \"106566036458\",\n                \"accountType\": \"SAVINGS\",\n                \"balance\": 3100,\n                \"currency\": \"CAD\",\n                \"status\": \"ACTIVE\",\n                \"createdAt\": \"2026-07-13T13:07:40\"\n            }\n        ],\n        \"page\": 0,\n        \"size\": 10,\n        \"totalElements\": 15,\n        \"totalPages\": 2,\n        \"last\": false\n    },\n    \"timestamp\": \"2026-08-08T09:47:53.8540337\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Admin Get Customer By ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/admin/customers/{{customerId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "customers",
+                "{{customerId}}"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Admin Get Customer By ID",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/admin/customers/{{customerId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "customers",
+                    "{{customerId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:50:34 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Customer fetched successfully\",\n    \"data\": {\n        \"customerId\": 9,\n        \"userId\": 11,\n        \"email\": \"UserA1@example.com\",\n        \"firstName\": \"Postman\",\n        \"lastName\": \"User\",\n        \"phone\": \"1234567890\",\n        \"dateOfBirth\": \"1995-05-15\",\n        \"kycStatus\": \"PENDING\"\n    },\n    \"timestamp\": \"2026-08-08T09:50:34.4877021\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Admin Update KYC Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"kycStatus\": \"VERIFIED\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/admin/customers/{{customerId}}/kyc-status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "customers",
+                "{{customerId}}",
+                "kyc-status"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Admin Update KYC Status",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"kycStatus\": \"VERIFIED\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/admin/customers/{{customerId}}/kyc-status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "customers",
+                    "{{customerId}}",
+                    "kyc-status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:52:58 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"KYC status updated successfully\",\n    \"data\": {\n        \"customerId\": 9,\n        \"userId\": 11,\n        \"email\": \"UserA1@example.com\",\n        \"firstName\": \"Postman\",\n        \"lastName\": \"User\",\n        \"phone\": \"1234567890\",\n        \"dateOfBirth\": \"1995-05-15\",\n        \"kycStatus\": \"VERIFIED\"\n    },\n    \"timestamp\": \"2026-08-08T09:52:58.3185926\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Admin Freeze Account",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/admin/accounts/{{accountId}}/freeze",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "accounts",
+                "{{accountId}}",
+                "freeze"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Admin Freeze Account",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/admin/accounts/{{accountId}}/freeze",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "accounts",
+                    "{{accountId}}",
+                    "freeze"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:54:10 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account frozen successfully\",\n    \"data\": {\n        \"accountId\": 14,\n        \"accountNumber\": \"103235572678\",\n        \"accountType\": \"SAVINGS\",\n        \"balance\": 900,\n        \"currency\": \"USD\",\n        \"status\": \"FROZEN\",\n        \"createdAt\": \"2026-08-08T09:16:14\"\n    },\n    \"timestamp\": \"2026-08-08T09:54:10.9734735\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Admin Unfreeze Account",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{adminToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/admin/accounts/{{accountId}}/unfreeze",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "accounts",
+                "{{accountId}}",
+                "unfreeze"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Admin Unfreeze Account",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/admin/accounts/{{accountId}}/unfreeze",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "accounts",
+                    "{{accountId}}",
+                    "unfreeze"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 10 Aug 2026 13:45:52 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Account unfrozen successfully\",\n    \"data\": {\n        \"accountId\": 11,\n        \"accountNumber\": \"103882671261\",\n        \"accountType\": \"SAVINGS\",\n        \"balance\": 900,\n        \"currency\": \"USD\",\n        \"status\": \"ACTIVE\",\n        \"createdAt\": \"2026-08-08T08:55:34\"\n    },\n    \"timestamp\": \"2026-08-10T09:45:52.0930269\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "08 Audit",
+      "item": [
+        {
+          "name": "Admin Search Audit Logs",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/admin/audit-logs?page=0&size=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "audit-logs"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Admin Search Audit Logs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/api/v1/admin/audit-logs?page=0&size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "v1",
+                    "admin",
+                    "audit-logs"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, max-age=0, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Expires",
+                  "value": "0"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "DENY"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 08 Aug 2026 13:48:32 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Audit logs fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"userId\": 10,\n            \"userEmail\": \"Dhruv2507@example.com\",\n            \"action\": \"ACCOUNT_CREATED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"10\",\n            \"details\": \"Created CHECKING account with number 109193377087 in USD\",\n            \"createdAt\": \"2026-07-25T13:35:17\"\n        },\n        {\n            \"id\": 2,\n            \"userId\": 9,\n            \"userEmail\": \"Mansi2507@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"9\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-07-25T13:42:05\"\n        },\n        {\n            \"id\": 3,\n            \"userId\": 9,\n            \"userEmail\": \"Mansi2507@example.com\",\n            \"action\": \"AMOUNT_WITHDRAWN\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"8\",\n            \"details\": \"Withdrawn 100 USD\",\n            \"createdAt\": \"2026-07-25T13:42:37\"\n        },\n        {\n            \"id\": 4,\n            \"userId\": 9,\n            \"userEmail\": \"Mansi2507@example.com\",\n            \"action\": \"AMOUNT_DEPOSITED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"8\",\n            \"details\": \"Deposited 1000 USD\",\n            \"createdAt\": \"2026-07-25T13:42:48\"\n        },\n        {\n            \"id\": 5,\n            \"userId\": 10,\n            \"userEmail\": \"Dhruv2507@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"10\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-07-25T13:44:16\"\n        },\n        {\n            \"id\": 6,\n            \"userId\": 10,\n            \"userEmail\": \"Dhruv2507@example.com\",\n            \"action\": \"ACCOUNT_CLOSED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"10\",\n            \"details\": \"Closed account 109193377087\",\n            \"createdAt\": \"2026-07-25T13:45:31\"\n        },\n        {\n            \"id\": 7,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"7\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-07-28T09:41:34\"\n        },\n        {\n            \"id\": 8,\n            \"userId\": 10,\n            \"userEmail\": \"Dhruv2507@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"10\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-07-28T09:44:25\"\n        },\n        {\n            \"id\": 9,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"7\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-07-28T10:23:20\"\n        },\n        {\n            \"id\": 10,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"7\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-08-03T08:23:22\"\n        },\n        {\n            \"id\": 11,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"KYC_STATUS_UPDATED\",\n            \"entityType\": \"CUSTOMER\",\n            \"entityId\": \"7\",\n            \"details\": \"Updated KYC status to PENDING\",\n            \"createdAt\": \"2026-08-03T08:26:07\"\n        },\n        {\n            \"id\": 12,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"KYC_STATUS_UPDATED\",\n            \"entityType\": \"CUSTOMER\",\n            \"entityId\": \"7\",\n            \"details\": \"Updated KYC status to VERIFIED\",\n            \"createdAt\": \"2026-08-03T08:26:28\"\n        },\n        {\n            \"id\": 13,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"7\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-08-03T08:42:32\"\n        },\n        {\n            \"id\": 14,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"7\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-08-03T08:55:00\"\n        },\n        {\n            \"id\": 15,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"7\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-08-03T09:07:22\"\n        },\n        {\n            \"id\": 16,\n            \"userId\": 7,\n            \"userEmail\": \"Harsh137@example.com\",\n            \"action\": \"TRANSFER_COMPLETED\",\n            \"entityType\": \"TRANSFER\",\n            \"entityId\": \"2\",\n            \"details\": \"Transferred 100 CAD from account 103382181781 to account 106566036458\",\n            \"createdAt\": \"2026-08-03T09:13:02\"\n        },\n        {\n            \"id\": 17,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"USER_REGISTERED\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"11\",\n            \"details\": \"Customer profile created with customer ID 9\",\n            \"createdAt\": \"2026-08-08T08:40:27\"\n        },\n        {\n            \"id\": 18,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"11\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-08-08T08:49:27\"\n        },\n        {\n            \"id\": 19,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"ACCOUNT_CREATED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"11\",\n            \"details\": \"Created SAVINGS account with number 103882671261 in USD\",\n            \"createdAt\": \"2026-08-08T08:55:34\"\n        },\n        {\n            \"id\": 20,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"ACCOUNT_CREATED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"12\",\n            \"details\": \"Created SAVINGS account with number 108440909519 in USD\",\n            \"createdAt\": \"2026-08-08T08:55:43\"\n        },\n        {\n            \"id\": 21,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"ACCOUNT_CREATED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"13\",\n            \"details\": \"Created SAVINGS account with number 104258752781 in USD\",\n            \"createdAt\": \"2026-08-08T08:56:16\"\n        },\n        {\n            \"id\": 22,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"AMOUNT_DEPOSITED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"11\",\n            \"details\": \"Deposited 500.00 USD\",\n            \"createdAt\": \"2026-08-08T09:00:40\"\n        },\n        {\n            \"id\": 23,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"AMOUNT_DEPOSITED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"11\",\n            \"details\": \"Deposited 500.00 USD\",\n            \"createdAt\": \"2026-08-08T09:07:00\"\n        },\n        {\n            \"id\": 24,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"AMOUNT_WITHDRAWN\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"11\",\n            \"details\": \"Withdrawn 100.00 USD\",\n            \"createdAt\": \"2026-08-08T09:08:00\"\n        },\n        {\n            \"id\": 25,\n            \"userId\": 12,\n            \"userEmail\": \"UserA2@example.com\",\n            \"action\": \"USER_REGISTERED\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"12\",\n            \"details\": \"Customer profile created with customer ID 10\",\n            \"createdAt\": \"2026-08-08T09:13:36\"\n        },\n        {\n            \"id\": 26,\n            \"userId\": 12,\n            \"userEmail\": \"UserA2@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"12\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-08-08T09:15:23\"\n        },\n        {\n            \"id\": 27,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"ACCOUNT_CREATED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"14\",\n            \"details\": \"Created SAVINGS account with number 103235572678 in USD\",\n            \"createdAt\": \"2026-08-08T09:16:14\"\n        },\n        {\n            \"id\": 28,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"ACCOUNT_CREATED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"15\",\n            \"details\": \"Created SAVINGS account with number 106185856709 in USD\",\n            \"createdAt\": \"2026-08-08T09:16:27\"\n        },\n        {\n            \"id\": 29,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"AMOUNT_DEPOSITED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"15\",\n            \"details\": \"Deposited 1000.00 USD\",\n            \"createdAt\": \"2026-08-08T09:20:27\"\n        },\n        {\n            \"id\": 30,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"AMOUNT_DEPOSITED\",\n            \"entityType\": \"ACCOUNT\",\n            \"entityId\": \"14\",\n            \"details\": \"Deposited 1000.00 USD\",\n            \"createdAt\": \"2026-08-08T09:24:42\"\n        },\n        {\n            \"id\": 31,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"TRANSFER_COMPLETED\",\n            \"entityType\": \"TRANSFER\",\n            \"entityId\": \"3\",\n            \"details\": \"Transferred 50.00 USD from account 103235572678 to account 106185856709\",\n            \"createdAt\": \"2026-08-08T09:24:47\"\n        },\n        {\n            \"id\": 32,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"TRANSFER_COMPLETED\",\n            \"entityType\": \"TRANSFER\",\n            \"entityId\": \"4\",\n            \"details\": \"Transferred 50.00 USD from account 103235572678 to account 106185856709\",\n            \"createdAt\": \"2026-08-08T09:25:12\"\n        },\n        {\n            \"id\": 33,\n            \"userId\": 11,\n            \"userEmail\": \"UserA1@example.com\",\n            \"action\": \"USER_LOGGED_IN\",\n            \"entityType\": \"USER\",\n            \"entityId\": \"11\",\n            \"details\": \"User logged in successfully\",\n            \"createdAt\": \"2026-08-08T09:45:50\"\n        }\n    ],\n    \"timestamp\": \"2026-08-08T09:48:32.1936868\"\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
