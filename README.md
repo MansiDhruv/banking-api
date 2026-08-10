@@ -270,10 +270,95 @@ Admin customer/account APIs
 Audit logs
 ```
 
+## Architecture Overview
+
+```mermaid
+flowchart TD
+    Client[Client / Postman / Swagger] --> Controller[REST Controllers]
+    Controller --> Service[Service Layer]
+    Service --> Repository[Repository Layer]
+    Repository --> DB[(MySQL Database)]
+
+    Security[Spring Security JWT] --> Controller
+    Flyway[Flyway Migrations] --> DB
+    Swagger[Swagger / OpenAPI] --> Controller
+```
+
+
+## Database Schema Overview
+
+```mermaid
+erDiagram
+    USERS ||--|| CUSTOMERS : has
+    CUSTOMERS ||--o{ ACCOUNTS : owns
+    ACCOUNTS ||--o{ ACCOUNT_TRANSACTIONS : records
+    ACCOUNTS ||--o{ TRANSFERS : sends
+    ACCOUNTS ||--o{ TRANSFERS : receives
+    USERS ||--o{ AUDIT_LOGS : performs
+
+    USERS {
+        bigint id
+        varchar email
+        varchar password_hash
+        varchar role
+        varchar status
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CUSTOMERS {
+        bigint id
+        bigint user_id
+        varchar first_name
+        varchar last_name
+        varchar phone
+        date date_of_birth
+        varchar kyc_status
+    }
+
+    ACCOUNTS {
+        bigint id
+        bigint customer_id
+        varchar account_number
+        varchar account_type
+        decimal balance
+        varchar currency
+        varchar status
+    }
+
+    ACCOUNT_TRANSACTIONS {
+        bigint id
+        bigint account_id
+        varchar transaction_reference
+        varchar type
+        decimal amount
+        decimal balance_after
+        varchar status
+    }
+
+    TRANSFERS {
+        bigint id
+        bigint from_account_id
+        bigint to_account_id
+        decimal amount
+        varchar currency
+        varchar status
+        varchar reference
+    }
+
+    AUDIT_LOGS {
+        bigint id
+        bigint user_id
+        varchar action
+        varchar entity_type
+        varchar entity_id
+        varchar details
+        timestamp created_at
+    }
+```
+
 ## Upcoming Features
 
 - Refresh token flow
 - Unit tests
 - Integration tests
-- Final Postman collection
-- Architecture and database diagrams
