@@ -50,6 +50,7 @@ A Spring Boot based Banking REST API built with Java 17, MySQL, Spring Security,
 - Transfer history with pagination and filtering
 - Docker support with MySQL and Spring Boot using Docker Compose
 - Unit tests for authentication, account operations, and transfers
+- Integration tests for authentication and account API flows
 
 ## APIs Implemented
 
@@ -360,5 +361,4 @@ erDiagram
 
 ## Upcoming Features
 
-- Integration tests
 - Refresh token flow
