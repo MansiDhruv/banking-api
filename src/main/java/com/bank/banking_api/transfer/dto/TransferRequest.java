@@ -32,7 +32,26 @@ public class TransferRequest {
         return amount;
     }
 
-    public String getDescription() {
+    public void setFromAccountId(Long fromAccountId) {
+		this.fromAccountId = fromAccountId;
+	}
+
+	public void setToAccountNumber(String toAccountNumber) {
+		this.toAccountNumber = toAccountNumber;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getDescription() {
         return description;
     }
+    
+    
+    
 }

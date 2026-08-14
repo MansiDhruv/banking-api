@@ -12,6 +12,8 @@ import com.bank.banking_api.auth.service.AuthService;
 import com.bank.banking_api.common.response.ApiResponse;
 import com.bank.banking_api.auth.dto.LoginRequest;
 import com.bank.banking_api.auth.dto.LoginResponse;
+import com.bank.banking_api.auth.dto.RefreshTokenRequest;
+import com.bank.banking_api.auth.dto.RefreshTokenResponse;
 
 import jakarta.validation.Valid;
 
@@ -39,5 +41,11 @@ public class AuthController {
     @GetMapping("/api/v1/auth/me")
     public ApiResponse<String> me(Authentication authentication) {
         return ApiResponse.success("Authenticated user fetched", authentication.getName());
+    }
+    
+    @PostMapping("/api/v1/auth/refresh-token")
+    public ApiResponse<RefreshTokenResponse> refreshToken(@Valid @RequestBody RefreshTokenRequest request) {
+        RefreshTokenResponse response = authService.refreshToken(request);
+        return ApiResponse.success("Access token refreshed successfully", response);
     }
 }

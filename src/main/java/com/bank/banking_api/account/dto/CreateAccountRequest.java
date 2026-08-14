@@ -20,4 +20,14 @@ public class CreateAccountRequest {
     public String getCurrency() {
         return currency;
     }
+
+	public void setAccountType(AccountType accountType) {
+		this.accountType = accountType;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+    
+    
 }

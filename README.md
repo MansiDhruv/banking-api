@@ -51,6 +51,7 @@ A Spring Boot based Banking REST API built with Java 17, MySQL, Spring Security,
 - Docker support with MySQL and Spring Boot using Docker Compose
 - Unit tests for authentication, account operations, and transfers
 - Integration tests for authentication and account API flows
+- Refresh token flow for renewing access tokens
 
 ## APIs Implemented
 
@@ -67,6 +68,7 @@ POST /api/v1/health/validate
 ```http
 POST /api/v1/auth/register
 POST /api/v1/auth/login
+POST /api/v1/auth/refresh-token
 GET /api/v1/auth/me
 ```
 

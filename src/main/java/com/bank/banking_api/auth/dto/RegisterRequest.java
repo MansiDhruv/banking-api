@@ -51,4 +51,31 @@ public class RegisterRequest {
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
+
+	public void setEmail(String email) {
+		// TODO Auto-generated method stub
+		this.email = email;
+		}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+
 }

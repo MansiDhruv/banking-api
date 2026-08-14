@@ -8,16 +8,26 @@ public class LoginResponse {
     private String status;
     private String accessToken;
     private String tokenType;
+    
+    private String refreshToken;
 
-    public LoginResponse(Long userId, String email, String role, String status, String accessToken, String tokenType) {
+    public LoginResponse(Long userId, String email, String role, String status,
+            String accessToken, String refreshToken, String tokenType) {
+    	
         this.userId = userId;
         this.email = email;
         this.role = role;
         this.status = status;
         this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
         this.tokenType = tokenType;
     }
 
+    
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+    
     public Long getUserId() {
         return userId;
     }

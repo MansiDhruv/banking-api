@@ -78,4 +78,11 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.failure("Something went wrong", null));
     }
     
+    @ExceptionHandler(InvalidRefreshTokenException.class)
+    public ResponseEntity<ApiResponse<Object>> handleInvalidRefreshToken(InvalidRefreshTokenException ex) {
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(ApiResponse.failure(ex.getMessage(), null));
+    }
+    
 }

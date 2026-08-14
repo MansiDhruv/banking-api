@@ -22,37 +22,33 @@ import jakarta.validation.Valid;
 @RestController
 public class TransferController {
 
-    private final TransferService transferService;
+	private final TransferService transferService;
 
-    public TransferController(TransferService transferService) {
-        this.transferService = transferService;
-    }
+	public TransferController(TransferService transferService) {
+		this.transferService = transferService;
+	}
 
-    @PostMapping("/api/v1/transfers")
-    public ApiResponse<TransferResponse> transfer(
-            Authentication authentication,
-            @Valid @RequestBody TransferRequest request) {
-        TransferResponse response = transferService.transfer(authentication.getName(), request);
-        return ApiResponse.success("Transfer completed successfully", response);
-    }
+	@PostMapping("/api/v1/transfers")
+	public ApiResponse<TransferResponse> transfer(Authentication authentication,
+			@Valid @RequestBody TransferRequest request) {
+		TransferResponse response = transferService.transfer(authentication.getName(), request);
+		return ApiResponse.success("Transfer completed successfully", response);
+	}
 
-    @GetMapping("/api/v1/transfers")
-    public ApiResponse<PagedResponse<TransferResponse>> searchMyTransfers(
-            Authentication authentication,
-            @RequestParam(required = false) TransferStatus status,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        PagedResponse<TransferResponse> response =
-                transferService.searchMyTransfers(authentication.getName(), status, page, size);
+	@GetMapping("/api/v1/transfers")
+	public ApiResponse<PagedResponse<TransferResponse>> searchMyTransfers(Authentication authentication,
+			@RequestParam(required = false) TransferStatus status, @RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "10") int size) {
+		PagedResponse<TransferResponse> response = transferService.searchMyTransfers(authentication.getName(), status,
+				page, size);
 
-        return ApiResponse.success("Transfers fetched successfully", response);
-    }
-    
-    @GetMapping("/api/v1/transfers/{transferId}")
-    public ApiResponse<TransferResponse> getMyTransferById(
-            Authentication authentication,
-            @PathVariable Long transferId) {
-        TransferResponse response = transferService.getMyTransferById(authentication.getName(), transferId);
-        return ApiResponse.success("Transfer fetched successfully", response);
-    }
+		return ApiResponse.success("Transfers fetched successfully", response);
+	}
+
+	@GetMapping("/api/v1/transfers/{transferId}")
+	public ApiResponse<TransferResponse> getMyTransferById(Authentication authentication,
+			@PathVariable Long transferId) {
+		TransferResponse response = transferService.getMyTransferById(authentication.getName(), transferId);
+		return ApiResponse.success("Transfer fetched successfully", response);
+	}
 }

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.bank.banking_api.auth.dto.RegisterRequest;
 import com.bank.banking_api.auth.dto.RegisterResponse;
+import com.bank.banking_api.auth.entity.RefreshToken;
 import com.bank.banking_api.common.enums.Role;
 import com.bank.banking_api.common.enums.UserStatus;
 import com.bank.banking_api.common.exception.DuplicateResourceException;
@@ -14,6 +15,8 @@ import com.bank.banking_api.user.repository.UserRepository;
 import com.bank.banking_api.audit.service.AuditService;
 import com.bank.banking_api.auth.dto.LoginRequest;
 import com.bank.banking_api.auth.dto.LoginResponse;
+import com.bank.banking_api.auth.dto.RefreshTokenRequest;
+import com.bank.banking_api.auth.dto.RefreshTokenResponse;
 import com.bank.banking_api.common.exception.InvalidCredentialsException;
 import com.bank.banking_api.customer.entity.Customer;
 import com.bank.banking_api.customer.repository.CustomerRepository;
@@ -30,13 +33,16 @@ public class AuthService {
     
     private final AuditService auditService;
     
+    private final RefreshTokenService refreshTokenService;
+    
 	public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder,
-			JwtTokenProvider jwtTokenProvider, CustomerRepository customerRepository,  AuditService auditService) {
+			JwtTokenProvider jwtTokenProvider, CustomerRepository customerRepository,  AuditService auditService , RefreshTokenService refreshTokenService) {
 		this.userRepository = userRepository;
 		this.passwordEncoder = passwordEncoder;
 		this.jwtTokenProvider = jwtTokenProvider;
 		this.customerRepository = customerRepository;
 		this.auditService = auditService;
+		this.refreshTokenService = refreshTokenService;
 	}
 
 	@Transactional
@@ -99,6 +105,8 @@ public class AuthService {
         
         String accessToken = jwtTokenProvider.generateToken(user);
         
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
+        
         auditService.log(
                 user,
                 "USER_LOGGED_IN",
@@ -113,6 +121,20 @@ public class AuthService {
                 user.getRole().name(),
                 user.getStatus().name(),
                 accessToken,
+                refreshToken.getToken(),
+                "Bearer"
+        );
+    }
+    
+    @Transactional
+    public RefreshTokenResponse refreshToken(RefreshTokenRequest request) {
+        RefreshToken refreshToken = refreshTokenService.validateRefreshToken(request.getRefreshToken());
+
+        String accessToken = jwtTokenProvider.generateToken(refreshToken.getUser());
+
+        return new RefreshTokenResponse(
+                accessToken,
+                refreshToken.getToken(),
                 "Bearer"
         );
     }
