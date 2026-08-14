@@ -360,7 +360,3 @@ erDiagram
         timestamp created_at
     }
 ```
-
-## Upcoming Features
-
-- Refresh token flow
